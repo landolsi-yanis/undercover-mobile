@@ -1,0 +1,26 @@
+.PlayerBox {
+    border-radius: 30px;
+    padding: 8px 10px;
+    margin: 0;
+    height: 65px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #fff;
+    outline: none;
+    font-weight: bold;
+    font-size: 22px;
+    border: none;
+    background: rgba(60, 112, 143, 0.52);
+    border: 3px solid rgba(60, 112, 143, 1);
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    font-family: "Lexend Deca", sans-serif;
+}
+
+.pbPlayerPicture
+{
+    height:45px;
+    width:auto;
+}

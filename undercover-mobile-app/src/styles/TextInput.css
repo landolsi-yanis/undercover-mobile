@@ -1,0 +1,18 @@
+.TextInput
+{
+    border-radius:30px;
+    padding:8px 10px;
+    margin:0;
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    color:#000;
+    outline:none;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: "Lexend Deca", sans-serif;
+}
+
+.TextInput::placeholder {
+    color: #000;
+}

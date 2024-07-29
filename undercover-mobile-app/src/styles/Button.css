@@ -1,0 +1,28 @@
+.Button {
+    border-radius: 30px;
+    padding: 8px 10px;
+    margin: 0;
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #fff;
+    outline: none;
+    font-weight: bold;
+    font-size: 18px;
+    border:none;
+    font-family: "Lexend Deca", sans-serif;
+}
+
+.Button:active
+{
+    opacity: 0.8;
+}
+
+.btPurple
+{
+    background: linear-gradient(180deg, #8972FE 0%, #47004E 100%);
+}
+
+.btOrange {
+    background: linear-gradient(180deg, #FDAE25 0%, #E83400 100%);
+}
