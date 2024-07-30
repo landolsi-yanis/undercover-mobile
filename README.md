@@ -17,7 +17,7 @@ Undercover est une application web interactive construite avec React, conçue po
 
 ## Démo (prochainement)
 
-[Essayez Undercover en ligne !](URL_vers_la_démo) <!-- Remplacez cette ligne par un lien vers une démo en ligne de votre application -->
+[Essayez Undercover en ligne !](.) <!-- Remplacez cette ligne par un lien vers une démo en ligne de votre application -->
 
 ## Installation
 
@@ -64,7 +64,7 @@ Après avoir démarré l'application, vous pouvez :
 
 ## Auteur
 
-Développé par [Yanis LANDOLSI](https://github.com/landolsi-yanis) – [Mon Email](mailto:landolsiyanis@gmail.com)
+Développé par [Yanis LANDOLSI](https://github.com/landolsi-yanis) – [Me contacter par email](mailto:landolsiyanis@gmail.com)
 
 ## License
 
