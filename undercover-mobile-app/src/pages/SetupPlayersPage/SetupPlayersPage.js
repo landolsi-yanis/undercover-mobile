@@ -3,17 +3,27 @@ import Header from '../../components/Header/Header'
 import TextInput from '../../components/TextInput/TextInput'
 import Button from '../../components/Button/Button'
 import PlayerBox from '../../components/PlayerBox/PlayerBox'
+import PlayerBoxContainer from '../../components/PlayerBoxContainer/PlayerBoxContainer'
+
 
 function SetupPlayersPage () {
     return <div>
-        <Header/><br/><br/><br/>
-        <TextInput placeholderValue="Set players"/><br/><br/>
-        <Button buttonType="btPurple" buttonValue="ADD +"/><br/><br/>
-        <PlayerBox pbValue="Staline" /><br/>
-        <PlayerBox pbValue="The Queen" /><br/>
-        <PlayerBox pbValue="Obamaster" /><br/>
-        <PlayerBox pbValue="Otter" /><br/>
-        <Button buttonType="btOrange" buttonValue="START"/>
+        <Header/>
+        <div className="addPlayerContainer">
+            <div className="addPlayerContainer80">
+                <TextInput placeholderValue="Set players"/>
+            </div>
+            <div className="addPlayerContainer20">
+                 <Button buttonType="btPurple" buttonValue="ADD +"/>
+            </div>    
+        </div>
+        <PlayerBoxContainer>
+            <PlayerBox pbValue="Staline" />
+            <PlayerBox pbValue="The Queen" />
+            <PlayerBox pbValue="Obamaster" />
+            <PlayerBox pbValue="Otter" />
+            <Button buttonType="btOrange" buttonValue="START"/>
+        </PlayerBoxContainer>
         </div>
 }
 

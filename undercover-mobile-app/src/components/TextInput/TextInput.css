@@ -1,15 +1,15 @@
 .TextInput
 {
-    border-radius:30px;
-    padding:8px 10px;
-    margin:0;
-    height: 50px;
+    border-radius: 30px;
+    padding: 8px 15px;
+    margin: 0;
+    height: 65px;
     width: 100%;
     box-sizing: border-box;
     color:#000;
     outline:none;
-    font-weight: bold;
-    font-size: 18px;
+    font-weight: normal;
+    font-size: 22px;
     font-family: "Lexend Deca", sans-serif;
 }
 

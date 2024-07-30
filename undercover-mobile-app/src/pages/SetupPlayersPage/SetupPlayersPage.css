@@ -1,0 +1,15 @@
+.addPlayerContainer
+{
+    display:flex;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.addPlayerContainer80
+{
+    flex: 68;
+}
+
+.addPlayerContainer20 {
+    flex: 32;
+}
