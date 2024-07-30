@@ -27,7 +27,6 @@ Pour installer et faire fonctionner Undercover localement, suivez ces étapes :
 
    ```bash
    git clone https://github.com/landolsi-yanis/undercover-mobile.git
-   cd undercover-mobile
    ```
 
 2. **Installez les dépendances** :
