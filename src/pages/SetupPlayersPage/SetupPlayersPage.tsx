@@ -7,6 +7,12 @@ import PlayerBoxContainer from '../../components/PlayerBoxContainer/PlayerBoxCon
 
 
 const SetupPlayersPage = () => {
+
+    const handleClick = () =>
+        {
+            console.log('addPlayer');
+        };
+
     return <div className="pageWrap">
         <div className="headerWrap">
             <Header/>
@@ -15,7 +21,7 @@ const SetupPlayersPage = () => {
                     <TextInput placeholderValue="Set players"/>
                 </div>
                 <div className="addPlayerContainer20">
-                    <Button buttonType="btPurple" buttonValue="ADD +"/>
+                    <Button buttonType="btPurple" buttonValue="ADD +" buttonAction={handleClick} />
                 </div>    
             </div>
         </div>
@@ -31,8 +37,7 @@ const SetupPlayersPage = () => {
         <div className="footerWrap">
             <Button buttonType="btOrange" buttonValue="START"/>
         </div>
-        </div>
-        
+        </div>;
 }
 
 export default SetupPlayersPage

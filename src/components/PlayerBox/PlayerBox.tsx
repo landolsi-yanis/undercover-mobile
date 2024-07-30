@@ -8,7 +8,7 @@ interface Props {
   }
 
 const PlayerBox: React.FC<Props> = (props) => {
-    return <div className='PlayerBox '><img src={playerPicture} alt="Player Profile" className="pbPlayerPicture" /> {props.pbValue}
+    return <div className='PlayerBox'><img src={playerPicture} alt="Player Profile" className="pbPlayerPicture" /> {props.pbValue}
             </div>;
 }
 export default PlayerBox;
