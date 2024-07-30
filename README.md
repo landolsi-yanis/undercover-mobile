@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Undercover
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Undercover Logo](./src/assets/logo.png) <!-- Remplacez cette ligne par un lien vers le logo de votre application -->
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+Bienvenue dans **Undercover** ! 🕵️‍♂️
 
-### `npm start`
+Undercover est une application web interactive construite avec React, conçue pour offrir une expérience de jeu captivante inspirée des jeux de société en ligne. Que vous soyez un amateur de jeux ou simplement à la recherche d'une nouvelle expérience ludique, Undercover propose un jeu dynamique où stratégie et coopération se rencontrent.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Fonctionnalités
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 🎮 **Jeu d'Enquête** : Découvrez qui sont les Undercovers qui se cachent parmi vous.
+- 🌐 **Multijoueur en Temps Réel** : Jouez en temps réel avec vos amis
+- 📊 **Statistiques et Historique (prochainement)** : Consultez des statistiques détaillées et un historique de vos parties.
+- 📱 **Compatibilité Mobile** : Profitez du jeu sur votre smartphone et tablette grâce à une interface conçue pour les écrans tactiles.
 
-### `npm test`
+## Démo (prochainement)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Essayez Undercover en ligne !](URL_vers_la_démo) <!-- Remplacez cette ligne par un lien vers une démo en ligne de votre application -->
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Pour installer et faire fonctionner Undercover localement, suivez ces étapes :
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Clonez le dépôt** :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   git clone https://github.com/landolsi-yanis/undercover-mobile.git
+   cd undercover-mobile
+   ```
 
-### `npm run eject`
+2. **Installez les dépendances** :
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Démarrez le serveur de développement** :
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   npm start
+   # ou
+   yarn start
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. **Accédez à l'application** :
 
-## Learn More
+   Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Utilisation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Après avoir démarré l'application, vous pouvez :
 
-### Code Splitting
+- **Créer une Partie** : Lancez une nouvelle partie et invitez vos amis à se joindre à vous.
+- **Configurer le Jeu** : Modifiez les paramètres du jeu pour personnaliser votre expérience.
+- **Jouer** : Utilisez les fonctionnalités interactives du jeu pour vous concentrer pleinement sur la partie.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Technologies Utilisées
 
-### Analyzing the Bundle Size
+- **React** : Bibliothèque JavaScript pour construire l'interface utilisateur.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Auteur
 
-### Making a Progressive Web App
+Développé par [Yanis LANDOLSI](https://github.com/landolsi-yanis) – [Mon Email](mailto:landolsiyanis@gmail.com)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## License
 
-### Advanced Configuration
+Distribué sous la licence GNU AGPLv3
+– voir le fichier [LICENSE](https://www.gnu.org/licenses/agpl-3.0.en.html) pour plus d'informations.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Remerciements
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Un grand merci à NG et LP pour leur soutien et leurs ressources.
