@@ -2,7 +2,7 @@ import './App.css'
 import SetupPlayersPage from '../../pages/SetupPlayersPage/SetupPlayersPage'
 
 
-function App() {
+const App = () => {
     return <SetupPlayersPage />;
 }
 

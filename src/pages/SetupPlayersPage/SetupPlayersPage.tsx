@@ -6,7 +6,7 @@ import PlayerBox from '../../components/PlayerBox/PlayerBox'
 import PlayerBoxContainer from '../../components/PlayerBoxContainer/PlayerBoxContainer'
 
 
-function SetupPlayersPage () {
+const SetupPlayersPage = () => {
     return <div className="pageWrap">
         <div className="headerWrap">
             <Header/>
