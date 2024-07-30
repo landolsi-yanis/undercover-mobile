@@ -7,24 +7,32 @@ import PlayerBoxContainer from '../../components/PlayerBoxContainer/PlayerBoxCon
 
 
 function SetupPlayersPage () {
-    return <div>
-        <Header/>
-        <div className="addPlayerContainer">
-            <div className="addPlayerContainer80">
-                <TextInput placeholderValue="Set players"/>
+    return <div className="pageWrap">
+        <div className="headerWrap">
+            <Header/>
+            <div className="addPlayerContainer">
+                <div className="addPlayerContainer80">
+                    <TextInput placeholderValue="Set players"/>
+                </div>
+                <div className="addPlayerContainer20">
+                    <Button buttonType="btPurple" buttonValue="ADD +"/>
+                </div>    
             </div>
-            <div className="addPlayerContainer20">
-                 <Button buttonType="btPurple" buttonValue="ADD +"/>
-            </div>    
         </div>
-        <PlayerBoxContainer>
-            <PlayerBox pbValue="Staline" />
-            <PlayerBox pbValue="The Queen" />
-            <PlayerBox pbValue="Obamaster" />
-            <PlayerBox pbValue="Otter" />
+        <div className="bodyWrap">
+            
+            <PlayerBoxContainer>
+                <PlayerBox pbValue="Staline" />
+                <PlayerBox pbValue="The Queen" />
+                <PlayerBox pbValue="Obamaster" />
+                <PlayerBox pbValue="Otter" />
+            </PlayerBoxContainer>
+        </div>
+        <div className="footerWrap">
             <Button buttonType="btOrange" buttonValue="START"/>
-        </PlayerBoxContainer>
         </div>
+        </div>
+        
 }
 
 export default SetupPlayersPage

@@ -1,33 +1,38 @@
 body,
 html {
-  height: 100%;
   margin: 0;
   padding: 0;
+  touch-action: pan-y;
+  overscroll-behavior: none;
 }
 
 body {
-  margin: 0;
-  font-family: "Lexend Deca", sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: "Lexend Deca", sans-serif;
     font-optical-sizing: auto;
     font-weight: <weight>;
     font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  padding:0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
   font-family: "Lexend Deca", sans-serif;
     font-optical-sizing: auto;
-    font-weight: <weight>;
     font-style: normal;
-  height: 100%;
-  background: linear-gradient(180deg, #14033A 0%, #3C708F 100%);
-  background-size: cover;
-  background-position: center;
-  margin:0;
-  padding: 30px;
-  box-sizing: border-box;
+    background: linear-gradient(180deg, #14033A 0%, #3C708F 100%);
+    background-size: ;
+    background-position: center;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 code {
@@ -37,4 +42,5 @@ code {
 
 ::selection {
   background: #FDAE25;
+  color:#fff;
 }

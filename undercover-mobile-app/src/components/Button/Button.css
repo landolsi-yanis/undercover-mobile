@@ -2,15 +2,21 @@
     border-radius: 30px;
     padding: 8px 15px;
     margin: 0;
-    height: 65px;
+    height: 50px;
     width: 100%;
     box-sizing: border-box;
     color: #fff;
     outline: none;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 21px;
     border:none;
     font-family: "Lexend Deca", sans-serif;
+    -webkit-user-select: none;
+        /* Safari */
+        -ms-user-select: none;
+        /* IE 10 and IE 11 */
+        user-select: none;
+        /* Standard syntax */
 }
 
 .Button:active
