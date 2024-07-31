@@ -1,35 +1,37 @@
 .PlayerBox {
-    border-radius: 30px;
-    padding: 8px 15px;
-    margin: 0;
-    height: 60px;
-    width: 100%;
-    box-sizing: border-box;
-    color: #fff;
-    outline: none;
-    font-weight: normal;
-    font-size: 22px;
-    border: none;
-    background: rgba(60, 112, 143, 0.52);
-    border: 3px solid rgba(60, 112, 143, 1);
-    display:flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-    font-family: "Lexend Deca", sans-serif;
-    scroll-snap-align: start;
-        /* Aligne chaque élément au début du conteneur lors du défilement */
-    -webkit-user-select: none;
-        /* Safari */
-        -ms-user-select: none;
-        /* IE 10 and IE 11 */
-        user-select: none;
-        /* Standard syntax */
-        pointer-events: none
+  border-radius: 30px;
+  padding: 8px 15px;
+  margin: 0;
+  height: 60px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #fff;
+  outline: none;
+  font-weight: normal;
+  font-size: 22px;
+  border: none;
+  background: rgba(60, 112, 143, 0.52);
+  border: 3px solid rgba(60, 112, 143, 1);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  font-family: "Lexend Deca", sans-serif;
+  scroll-snap-align: start;
+  /* Aligne chaque élément au début du conteneur lors du défilement */
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
+  pointer-events: none;
 }
-
-.pbPlayerPicture
-{
-    height:45px;
-    width:auto;
+.pbDisabled {
+  border: 3px dashed rgba(60, 112, 143, 1);
+  opacity: 0.4;
+}
+.pbPlayerPicture {
+  height: 45px;
+  width: auto;
 }

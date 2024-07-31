@@ -1,34 +1,40 @@
 .Button {
-    border-radius: 30px;
-    padding: 8px 15px;
-    margin: 0;
-    height: 50px;
-    width: 100%;
-    box-sizing: border-box;
-    color: #fff;
-    outline: none;
-    font-weight: bold;
-    font-size: 21px;
-    border:none;
-    font-family: "Lexend Deca", sans-serif;
-    -webkit-user-select: none;
-        /* Safari */
-        -ms-user-select: none;
-        /* IE 10 and IE 11 */
-        user-select: none;
-        /* Standard syntax */
+  border-radius: 30px;
+  padding: 8px 15px;
+  margin: 0;
+  height: 50px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #fff;
+  outline: none;
+  font-weight: bold;
+  font-size: 21px;
+  border: none;
+  font-family: "Lexend Deca", sans-serif;
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
 }
 
-.Button:active
-{
-    opacity: 0.8;
+.Button:active {
+  opacity: 0.8;
 }
 
-.btPurple
-{
-    background: linear-gradient(180deg, #8972FE 0%, #47004E 100%);
+.btPurple {
+  background: linear-gradient(180deg, #8972fe 0%, #47004e 100%);
 }
 
 .btOrange {
-    background: linear-gradient(180deg, #FDAE25 0%, #E83400 100%);
+  background: linear-gradient(180deg, #fdae25 0%, #e83400 100%);
+}
+
+.btDisabled {
+  background: linear-gradient(180deg, #b0b0b0 0%, #404040 100%);
+}
+
+.btDisabled:active {
+  opacity: 1;
 }

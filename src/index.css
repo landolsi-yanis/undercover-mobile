@@ -7,40 +7,40 @@ html {
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    font-family: "Lexend Deca", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-family: "Lexend Deca", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
   font-family: "Lexend Deca", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    background: linear-gradient(180deg, #14033A 0%, #3C708F 100%);
-    background-size: ;
-    background-position: center;
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background: linear-gradient(180deg, #14033a 0%, #3c708f 100%);
+  background-size: ;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 ::selection {
-  background: #FDAE25;
-  color:#fff;
+  background: #fdae25;
+  color: #fff;
 }

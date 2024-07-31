@@ -1,47 +1,41 @@
-.pageWrap
-{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+.pageWrap {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
-.headerWrap
-{
-    flex:20%;
-    padding: 20px 20px 0px 20px;
-    box-sizing: border-box;
+.headerWrap {
+  flex: 20%;
+  padding: 20px 20px 0px 20px;
+  box-sizing: border-box;
 }
 
-.bodyWrap
-{
-    flex:70%;
-    padding: 0px 20px 0px 20px;
-    box-sizing: border-box;
-    overflow: scroll;
-    scroll-snap-type: y mandatory;
-        /* Définit le type de défilement par saccades */
+.bodyWrap {
+  flex: 70%;
+  padding: 0px 20px 0px 20px;
+  box-sizing: border-box;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+  /* Définit le type de défilement par saccades */
 }
 
-.footerWrap
-{
-    flex: auto;
-    padding: 5px 20px 20px 20px;
-    box-sizing: border-box;
+.footerWrap {
+  flex: auto;
+  padding: 5px 20px 20px 20px;
+  box-sizing: border-box;
 }
 
-.addPlayerContainer
-{
-    display:flex;
-    gap:10px;
-    margin-bottom:10px;
-    align-items: center;
+.addPlayerContainer {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
 }
 
-.addPlayerContainer80
-{
-    flex: 68;
+.addPlayerContainer80 {
+  flex: 68;
 }
 
 .addPlayerContainer20 {
-    flex: 32;
+  flex: 32;
 }

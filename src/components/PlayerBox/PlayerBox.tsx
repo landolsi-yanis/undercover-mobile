@@ -1,14 +1,24 @@
-import './PlayerBox.css'
+import React from "react";
 
-import playerPicture from '../../assets/PlayerPicture.png'
+import "./PlayerBox.css";
+
+import playerPicture from "../../assets/PlayerPicture.png";
 
 interface Props {
-    playerPicture: string;
-    pbValue: string;
-  }
+  pbValue: string;
+  pbType: string;
+}
 
 const PlayerBox: React.FC<Props> = (props) => {
-    return <div className='PlayerBox'><img src={playerPicture} alt="Player Profile" className="pbPlayerPicture" /> {props.pbValue}
-            </div>;
-}
+  return (
+    <div className={props.pbType}>
+      <img
+        src={playerPicture}
+        alt="Player Profile"
+        className="pbPlayerPicture"
+      />{" "}
+      {props.pbValue}
+    </div>
+  );
+};
 export default PlayerBox;
