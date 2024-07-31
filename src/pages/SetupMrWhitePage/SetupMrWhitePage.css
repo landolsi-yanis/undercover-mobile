@@ -1,0 +1,23 @@
+.pageWrap {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: #fff;
+}
+.questionWrap {
+  padding: 20px;
+  margin-bottom: 30vh;
+  width: 50%;
+  font-size: 22px;
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
+  pointer-events: none;
+}
+
+.buttonWrap {
+  padding: 20px;
+}

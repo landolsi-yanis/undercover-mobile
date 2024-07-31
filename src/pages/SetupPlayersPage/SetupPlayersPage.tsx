@@ -54,10 +54,20 @@ const SetupPlayersPage = () => {
       <div className="bodyWrap">
         <PlayerBoxContainer>
           {players.map((player, index) => (
-            <PlayerBox key={index} pbType="PlayerBox" pbValue={player} />
+            <PlayerBox
+              key={index}
+              pbType="PlayerBox"
+              pbValue={player}
+              pbEye={false}
+            />
           ))}
           {Array.from({ length: minimumPlayers }).map((_, index) => (
-            <PlayerBox key={index} pbType="PlayerBox pbDisabled" pbValue="" />
+            <PlayerBox
+              key={index}
+              pbType="PlayerBox pbDisabled pbDashedBorder"
+              pbValue=""
+              pbEye={false}
+            />
           ))}
         </PlayerBoxContainer>
       </div>

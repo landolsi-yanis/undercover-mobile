@@ -13,7 +13,7 @@
   background: rgba(60, 112, 143, 0.52);
   border: 3px solid rgba(60, 112, 143, 1);
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
   font-family: "Lexend Deca", sans-serif;
@@ -28,10 +28,29 @@
   pointer-events: none;
 }
 .pbDisabled {
-  border: 3px dashed rgba(60, 112, 143, 1);
   opacity: 0.4;
 }
+
+.pbDashedBorder {
+  border: 3px dashed rgba(60, 112, 143, 1);
+}
+
 .pbPlayerPicture {
   height: 45px;
   width: auto;
+}
+
+.pbEye {
+  height: 30px;
+}
+
+.pbLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pbRight {
+  display: flex;
+  align-items: center;
 }
