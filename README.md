@@ -1,75 +1,79 @@
 # Undercover
 
-![Undercover Logo](./src/assets/logo.png) <!-- Remplacez cette ligne par un lien vers le logo de votre application -->
+![Undercover Logo](./src/assets/logo.png) <!-- Replace this line with a link to your application's logo -->
 
 ## Description
 
-Bienvenue dans **Undercover** ! 🕵️‍♂️
+Welcome to **Undercover**! 🕵️‍♂️
 
-Undercover est une application web interactive construite avec React, conçue pour offrir une expérience de jeu captivante inspirée des jeux de société en ligne. Que vous soyez un amateur de jeux ou simplement à la recherche d'une nouvelle expérience ludique, Undercover propose un jeu dynamique où stratégie et coopération se rencontrent.
+Undercover is an interactive web application built with React, designed to offer an engaging gaming experience inspired by online board games. Whether you're a game enthusiast or simply looking for a new playful experience, Undercover provides a dynamic game where strategy and cooperation come together.
 
-## Fonctionnalités
+## Features
 
-- 🎮 **Jeu d'Enquête** : Découvrez qui sont les Undercovers qui se cachent parmi vous.
-- 🌐 **Multijoueur en Temps Réel** : Jouez en temps réel avec vos amis
-- 📊 **Statistiques et Historique (prochainement)** : Consultez des statistiques détaillées et un historique de vos parties.
-- 📱 **Compatibilité Mobile** : Profitez du jeu sur votre smartphone et tablette grâce à une interface conçue pour les écrans tactiles.
+- 🎮 **Investigation Game**: Find out who the Undercovers are hiding among you.
+- 🌐 **Real-Time Multiplayer**: Play in real-time with your friends.
+- 📊 **Statistics and History (coming soon)**: Check detailed statistics and a history of your games.
+- 📱 **Mobile Compatibility**: Enjoy the game on your smartphone and tablet with an interface designed for touch screens.
 
-## Démo (prochainement)
+## Demo (coming soon)
 
-[Essayez Undercover en ligne !](.) <!-- Remplacez cette ligne par un lien vers une démo en ligne de votre application -->
+[Try Undercover online!](.) <!-- Replace this line with a link to an online demo of your application -->
 
 ## Installation
 
-Pour installer et faire fonctionner Undercover localement, suivez ces étapes :
+To install and run Undercover locally, follow these steps:
 
-1. **Clonez le dépôt** :
+1. **Clone the repository**:
 
-   ```bash
+   \`\`\`bash
    git clone https://github.com/landolsi-yanis/undercover-mobile.git
-   ```
+   \`\`\`
 
-2. **Installez les dépendances** :
+2. **Install dependencies**:
 
-   ```bash
+   \`\`\`bash
    npm install
-   # ou
+
+   # or
+
    yarn install
-   ```
+   \`\`\`
 
-3. **Démarrez le serveur de développement** :
+3. **Start the development server**:
 
-   ```bash
+   \`\`\`bash
    npm start
-   # ou
+
+   # or
+
    yarn start
-   ```
+   \`\`\`
 
-4. **Accédez à l'application** :
+4. **Access the application**:
 
-   Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Utilisation
+## Usage
 
-Après avoir démarré l'application, vous pouvez :
+After starting the application, you can:
 
-- **Créer une Partie** : Lancez une nouvelle partie et invitez vos amis à se joindre à vous.
-- **Configurer le Jeu** : Modifiez les paramètres du jeu pour personnaliser votre expérience.
-- **Jouer** : Utilisez les fonctionnalités interactives du jeu pour vous concentrer pleinement sur la partie.
+- **Create a Game**: Launch a new game and invite your friends to join.
+- **Configure the Game**: Modify game settings to customize your experience.
+- **Play**: Use the interactive features of the game to fully immerse yourself in the gameplay.
 
-## Technologies Utilisées
+## Technologies Used
 
-- **React** : Bibliothèque JavaScript pour construire l'interface utilisateur.
+- **React**: JavaScript library for building the user interface.
 
-## Auteur
+## Author
 
-Développé par [Yanis LANDOLSI](https://github.com/landolsi-yanis) – [Me contacter par email](mailto:landolsiyanis@gmail.com)
+Developed by [Yanis LANDOLSI](https://github.com/landolsi-yanis) – [Contact me via email](mailto:landolsiyanis@gmail.com)
 
 ## License
 
-Distribué sous la licence GNU AGPLv3
-– voir le fichier [LICENSE](https://www.gnu.org/licenses/agpl-3.0.en.html) pour plus d'informations.
+Distributed under the GNU AGPLv3 license
+– see the [LICENSE](https://www.gnu.org/licenses/agpl-3.0.en.html) file for more information.
 
-## Remerciements
+## Acknowledgments
 
-Un grand merci à NG et LP pour leur soutien et leurs ressources.
+A big thank you to NG and LP for their support and resources.
