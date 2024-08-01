@@ -1,6 +1,6 @@
-import React from "react";
-import "./SetupMrWhitePage.css";
-import Button from "../../components/Button/Button";
+import React from 'react'
+import './SetupMrWhitePage.css'
+import Button from '../../components/Button/Button'
 
 const SetupMrWhitePage = () => {
   return (
@@ -13,7 +13,7 @@ const SetupMrWhitePage = () => {
         <Button buttonType="btPurple" buttonValue="Without Mr White" />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SetupMrWhitePage;
+export default SetupMrWhitePage

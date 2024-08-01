@@ -1,11 +1,12 @@
-import "./PlayerBoxContainer.css";
+import React from 'react'
+import './PlayerBoxContainer.css'
 
 interface Props {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 const PlayerBoxContainer: React.FC<Props> = ({ children }) => {
-  return <div className="PlayerBoxContainer">{children}</div>;
-};
+  return <div className="PlayerBoxContainer">{children}</div>
+}
 
-export default PlayerBoxContainer;
+export default PlayerBoxContainer

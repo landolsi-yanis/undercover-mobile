@@ -1,32 +1,31 @@
-import React, { useState } from "react";
-import "./SetupPlayersPage.css";
-import Header from "../../components/Header/Header";
-import TextInput from "../../components/TextInput/TextInput";
-import Button from "../../components/Button/Button";
-import PlayerBox from "../../components/PlayerBox/PlayerBox";
-import PlayerBoxContainer from "../../components/PlayerBoxContainer/PlayerBoxContainer";
+import React, { useState } from 'react'
+import './SetupPlayersPage.css'
+import Header from '../../components/Header/Header'
+import TextInput from '../../components/TextInput/TextInput'
+import Button from '../../components/Button/Button'
+import PlayerBox from '../../components/PlayerBox/PlayerBox'
+import PlayerBoxContainer from '../../components/PlayerBoxContainer/PlayerBoxContainer'
 
 const SetupPlayersPage = () => {
-  const [playerNameInputValue, setPlayerNameInputValue] = useState<string>("");
-  const [players, setPlayers] = useState<string[]>([]);
-  const [minimumPlayers, setMinimumPlayers] = useState<number>(3);
-  const [buttonStartState, setButtonStartState] =
-    useState<string>("btDisabled");
+  const [playerNameInputValue, setPlayerNameInputValue] = useState<string>('')
+  const [players, setPlayers] = useState<string[]>([])
+  const [minimumPlayers, setMinimumPlayers] = useState<number>(3)
+  const [buttonStartState, setButtonStartState] = useState<string>('btDisabled')
 
   const addPlayer = () => {
-    if (playerNameInputValue.trim() !== "") {
+    if (playerNameInputValue.trim() !== '') {
       if (minimumPlayers <= 3 && minimumPlayers > 1) {
-        setMinimumPlayers(minimumPlayers - 1);
-        console.log(minimumPlayers);
+        setMinimumPlayers(minimumPlayers - 1)
+        console.log(minimumPlayers)
       } else {
-        setButtonStartState("btOrange");
-        setMinimumPlayers(0);
-        console.log(minimumPlayers);
+        setButtonStartState('btOrange')
+        setMinimumPlayers(0)
+        console.log(minimumPlayers)
       }
-      setPlayers([...players, playerNameInputValue]);
-      setPlayerNameInputValue("");
+      setPlayers([...players, playerNameInputValue])
+      setPlayerNameInputValue('')
     }
-  };
+  }
 
   return (
     <div className="pageWrap">
@@ -38,7 +37,7 @@ const SetupPlayersPage = () => {
               placeholderValue="Set players"
               textInputValue={playerNameInputValue}
               textInputChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                setPlayerNameInputValue(event.target.value);
+                setPlayerNameInputValue(event.target.value)
               }}
             />
           </div>
@@ -75,7 +74,7 @@ const SetupPlayersPage = () => {
         <Button buttonType={buttonStartState} buttonValue="START" />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SetupPlayersPage;
+export default SetupPlayersPage

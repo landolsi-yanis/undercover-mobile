@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react'
 
-import "./PlayerBox.css";
+import './PlayerBox.css'
 
-import playerPicture from "../../assets/playerPicture.png";
-import eyeIcon from "../../assets/eye.png";
+import playerPicture from '../../assets/playerPicture.png'
+import eyeIcon from '../../assets/eye.png'
 
 interface Props {
-  pbValue: string;
-  pbType: string;
-  pbEye: boolean;
+  pbValue: string
+  pbType: string
+  pbEye: boolean
 }
 
 const PlayerBox: React.FC<Props> = (props) => {
@@ -20,14 +20,14 @@ const PlayerBox: React.FC<Props> = (props) => {
             src={playerPicture}
             alt="Player Profile"
             className="pbPlayerPicture"
-          />{" "}
+          />{' '}
           {props.pbValue}
         </div>
         <div className="pbRight">
           <img src={eyeIcon} alt="Eye" className="pbEye" />
         </div>
       </div>
-    );
+    )
   } else {
     return (
       <div className={props.pbType}>
@@ -36,12 +36,12 @@ const PlayerBox: React.FC<Props> = (props) => {
             src={playerPicture}
             alt="Player Profile"
             className="pbPlayerPicture"
-          />{" "}
+          />{' '}
           {props.pbValue}
         </div>
         <div className="pbRight"></div>
       </div>
-    );
+    )
   }
-};
-export default PlayerBox;
+}
+export default PlayerBox

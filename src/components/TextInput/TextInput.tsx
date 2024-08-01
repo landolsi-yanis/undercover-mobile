@@ -1,10 +1,10 @@
-import React, { ChangeEventHandler } from "react";
-import "./TextInput.css";
+import React, { ChangeEventHandler } from 'react'
+import './TextInput.css'
 
 interface Props {
-  placeholderValue: string;
-  textInputValue?: string;
-  textInputChange?: ChangeEventHandler;
+  placeholderValue: string
+  textInputValue?: string
+  textInputChange?: ChangeEventHandler
 }
 
 const TextInput: React.FC<Props> = (props) => {
@@ -19,7 +19,7 @@ const TextInput: React.FC<Props> = (props) => {
       value={props.textInputValue}
       onChange={props.textInputChange}
     />
-  );
-};
+  )
+}
 
-export default TextInput;
+export default TextInput

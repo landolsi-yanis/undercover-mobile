@@ -1,7 +1,7 @@
-import React from "react";
-import "./SelectPlayerToDiscoverPage.css";
-import PlayerBoxContainer from "../../components/PlayerBoxContainer/PlayerBoxContainer";
-import PlayerBox from "../../components/PlayerBox/PlayerBox";
+import React from 'react'
+import './SelectPlayerToDiscoverPage.css'
+import PlayerBoxContainer from '../../components/PlayerBoxContainer/PlayerBoxContainer'
+import PlayerBox from '../../components/PlayerBox/PlayerBox'
 
 const SelectPlayerToDiscoverPage = () => {
   return (
@@ -21,7 +21,7 @@ const SelectPlayerToDiscoverPage = () => {
         </PlayerBoxContainer>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SelectPlayerToDiscoverPage;
+export default SelectPlayerToDiscoverPage
