@@ -5,12 +5,14 @@ import TextInput from '../../components/TextInput/TextInput'
 import Button from '../../components/Button/Button'
 import PlayerBox from '../../components/PlayerBox/PlayerBox'
 import PlayerBoxContainer from '../../components/PlayerBoxContainer/PlayerBoxContainer'
+import { useNavigate } from 'react-router-dom'
 
 const SetupPlayersPage = () => {
   const [playerNameInputValue, setPlayerNameInputValue] = useState<string>('')
   const [players, setPlayers] = useState<string[]>([])
   const [minimumPlayers, setMinimumPlayers] = useState<number>(3)
   const [buttonStartState, setButtonStartState] = useState<string>('btDisabled')
+  const navigate = useNavigate()
 
   const addPlayer = () => {
     if (playerNameInputValue.trim() !== '') {
@@ -24,6 +26,12 @@ const SetupPlayersPage = () => {
       }
       setPlayers([...players, playerNameInputValue])
       setPlayerNameInputValue('')
+    }
+  }
+
+  const startGame = () => {
+    if (minimumPlayers === 0) {
+      navigate('setupMrWhitePage')
     }
   }
 
@@ -71,7 +79,11 @@ const SetupPlayersPage = () => {
         </PlayerBoxContainer>
       </div>
       <div className="footerWrap">
-        <Button buttonType={buttonStartState} buttonValue="START" />
+        <Button
+          buttonType={buttonStartState}
+          buttonValue="START"
+          buttonAction={startGame}
+        />
       </div>
     </div>
   )
