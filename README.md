@@ -1,6 +1,6 @@
 # Undercover
 
-![Undercover Logo](./src/assets/logo.png) <!-- Replace this line with a link to your application's logo -->
+![Undercover Logo](./src/assets/logo.png)
 
 ## Description
 
@@ -17,7 +17,7 @@ Undercover is an interactive web application built with React, designed to offer
 
 ## Demo (coming soon)
 
-[Try Undercover online!](.) <!-- Replace this line with a link to an online demo of your application -->
+[Try Undercover online!](.)
 
 ## Installation
 
@@ -25,29 +25,29 @@ To install and run Undercover locally, follow these steps:
 
 1. **Clone the repository**:
 
-   \`\`\`bash
+   ```bash
    git clone https://github.com/landolsi-yanis/undercover-mobile.git
-   \`\`\`
+   ```
 
 2. **Install dependencies**:
 
-   \`\`\`bash
+   ```bash
    npm install
 
    # or
 
    yarn install
-   \`\`\`
+   ```
 
 3. **Start the development server**:
 
-   \`\`\`bash
+   ```bash
    npm start
 
    # or
 
    yarn start
-   \`\`\`
+   ```
 
 4. **Access the application**:
 
