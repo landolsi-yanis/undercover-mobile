@@ -84,3 +84,8 @@
   border: 3px dashed rgba(60, 112, 143, 1);
   opacity: 0.5;
 }
+
+.pbDashedBorder:active
+{
+    opacity: 0.5;
+}
