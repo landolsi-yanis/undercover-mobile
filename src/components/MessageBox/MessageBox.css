@@ -1,9 +1,17 @@
-.playerBox
+.messageBoxContainer
+{
+    display:flex;
+    align-items:center;
+    height:100%;
+}
+
+.messageBox
 {
     border-radius: 30px;
-    padding: 8px 15px;
+    padding: 15px 12px 12px 12px;
     margin: 0;
-    height: 60px;
+    height: auto;
+    max-height:80%;
     width: 100%;
     box-sizing: border-box;
     color: #fff;
@@ -14,8 +22,9 @@
     background: rgba(60, 112, 143, 0.52);
     border: 3px solid rgba(60, 112, 143, 1);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
+    flex-direction: column;
     gap: 10px;
     font-family: "Lexend Deca", sans-serif;
     scroll-snap-align: start;
@@ -28,59 +37,31 @@
     /* Standard syntax */
 }
 
-.pbDisabled
+.messageBoxLargeHeight
 {
-    opacity: 0.4;
+    height:80%;
 }
 
-.pbLeftSide
+.messageBoxHeader
 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    width:100%
 }
 
-.pbRightSide
+.messageBoxMain
 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    width:100%;
+    flex-grow: 1;
+    overflow: auto;
+    display:flex;
+    align-items:center;
 }
 
-.pbPlayerPicture
+.messageBoxFooter
 {
-    height: 45px;
-    width: auto;
+    width:100%
 }
 
-.pbEye
+.messageBoxMaintContentCentered
 {
-    height: 30px;
-}
-
-
-.playerBox:active 
-{
-  opacity:0.8;
-}
-
-.playerBox.pbDisabled:active 
-{
-  opacity:0.4;
-}
-
-.pbSelected
-{
-    background: rgba(253, 172, 37, 0.38);
-    border: 1px solid rgba(253, 172, 37, 1)
-}
-
-.pbSelected:active
-{
-    opacity:1;
-}
-
-.pbDashedBorder {
-  border: 3px dashed rgba(60, 112, 143, 1);
-  opacity: 0.5;
+    width:100%;
 }

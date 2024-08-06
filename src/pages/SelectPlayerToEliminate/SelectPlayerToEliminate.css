@@ -1,7 +1,12 @@
-.questionWrap {
+.pageWrap {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: #fff;
+}
+.textWrap {
   padding: 20px;
-  margin-bottom: 30vh;
-  width: 70%;
+  width: 50%;
   font-size: 22px;
   -webkit-user-select: none;
   /* Safari */
@@ -12,9 +17,6 @@
   pointer-events: none;
 }
 
-.buttonWrap {
-  padding: 10px;
-  display:flex;
-  gap:20px;
-  flex-direction: column;
+.playersWrap {
+  padding: 20px;
 }

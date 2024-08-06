@@ -1,0 +1,29 @@
+.showWWordPagePlayerPicture
+{
+  height: 45px;
+  width: auto;
+  /* Aligne chaque élément au début du conteneur lors du défilement */
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
+}
+.showWWordPagePlayerIdentity
+{
+  display:flex;
+  align-items: center;
+  gap:10px;
+}
+
+.showWWordPagePlayerInfo
+{
+  margin-top:10px;
+}
+
+.showWWordPageWord
+{
+  text-align: center;
+  font-weight: bold;
+}

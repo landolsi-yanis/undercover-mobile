@@ -1,16 +1,18 @@
 import React from 'react'
-import './SelectPlayerToDiscoverPage.css'
+import './SelectPlayerToEliminate.css'
 import PlayerBoxContainer from '../../components/PlayerBoxContainer/PlayerBoxContainer'
 import PlayerBox from '../../components/PlayerBox/PlayerBox'
 import PageWrapper from '../../components/PageWrapper/PageWrapper'
+import Button from '../../components/Button/Button'
 
-const SelectPlayerToDiscoverPage = () => {
+const SelectPlayerToEliminate = () => {
   return (
-    <PageWrapper mainContent={<><div className="textWrap">Select your name to discover your word </div>
+    <PageWrapper mainContent={<><div className="textWrap">Follow this order.<br /> 
+At the end of the round select player to eliminate </div>
 
       <div className="playersWrap">
         <PlayerBoxContainer>
-          <PlayerBox pbValue="Obamaster" pbEye={true} />
+          <PlayerBox pbValue="Obamaster" pbEye={false} pbSelected={true}/>
           <PlayerBox pbValue="Staline" pbEye={true} />
           <PlayerBox
             pbType="pbDisabled"
@@ -19,9 +21,9 @@ const SelectPlayerToDiscoverPage = () => {
           />
           <PlayerBox pbType="pbDisabled" pbValue="Otter" pbEye={true} />
         </PlayerBoxContainer>
-      </div></>}  />
+      </div></>}  footerContent={<Button buttonType={'button btOrange'}>Elminate</Button>}/>
       
   )
 }
 
-export default SelectPlayerToDiscoverPage
+export default SelectPlayerToEliminate

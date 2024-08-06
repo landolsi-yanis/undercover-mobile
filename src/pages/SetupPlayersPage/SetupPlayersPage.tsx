@@ -1,92 +1,62 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import PageWrapper from '../../components/PageWrapper/PageWrapper';
+import logo from '../../assets/logo.png';
+import TextInput from '../../components/TextInput/TextInput';
+import Button from '../../components/Button/Button';
+import PlayerBox from '../../components/PlayerBox/PlayerBox';
+import PlayerBoxContainer from '../../components/PlayerBoxContainer/PlayerBoxContainer';
 import './SetupPlayersPage.css'
-import Header from '../../components/Header/Header'
-import TextInput from '../../components/TextInput/TextInput'
-import Button from '../../components/Button/Button'
-import PlayerBox from '../../components/PlayerBox/PlayerBox'
-import PlayerBoxContainer from '../../components/PlayerBoxContainer/PlayerBoxContainer'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+
+
 
 const SetupPlayersPage = () => {
-  const [playerNameInputValue, setPlayerNameInputValue] = useState<string>('')
-  const [players, setPlayers] = useState<string[]>([])
-  const [minimumPlayers, setMinimumPlayers] = useState<number>(3)
-  const [buttonStartState, setButtonStartState] = useState<string>('btDisabled')
-  const navigate = useNavigate()
+
+  const [playerNameInputValue, setPlayerNameInputValue] = useState<string>('');
+  const [playersArray, setPlayersArray] = useState<string[]>([]);
+  const [minimumPlayers, setMinimumPlayers] = useState<number>(3);
+  const minimumPlayersLeft = Array.from({ length: minimumPlayers });
+  const [addPlayerButtonState, setAddPlayerButtonState] = useState<boolean>(false);
+  const navigate = useNavigate();
+
+
+  const handleTextInputChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    setPlayerNameInputValue(event.target.value);
+  };
 
   const addPlayer = () => {
-    if (playerNameInputValue.trim() !== '') {
-      if (minimumPlayers <= 3 && minimumPlayers > 1) {
-        setMinimumPlayers(minimumPlayers - 1)
-        console.log(minimumPlayers)
-      } else {
-        setButtonStartState('btOrange')
-        setMinimumPlayers(0)
-        console.log(minimumPlayers)
-      }
-      setPlayers([...players, playerNameInputValue])
-      setPlayerNameInputValue('')
+    if (playerNameInputValue.trim() !== '')
+    {
+        setPlayersArray([...playersArray, playerNameInputValue]);
+        setPlayerNameInputValue('');
+        minimumPlayers <= 3 && setMinimumPlayers(minimumPlayers -1);
+        minimumPlayers === 1 && setAddPlayerButtonState(true);
+
+        console.log(minimumPlayers);
     }
+    
+    console.log(playersArray);
   }
 
-  const startGame = () => {
+   const startGame = () => {
     if (minimumPlayers === 0) {
       navigate('setupMrWhitePage')
     }
   }
 
   return (
-    <div className="pageWrap">
-      <div className="headerWrap">
-        <Header />
-        <div className="addPlayerContainer">
-          <div className="addPlayerContainer80">
-            <TextInput
-              placeholderValue="Set players"
-              textInputValue={playerNameInputValue}
-              textInputChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                setPlayerNameInputValue(event.target.value)
-              }}
-            />
-          </div>
-          <div className="addPlayerContainer20">
-            <Button
-              buttonType="btPurple"
-              buttonValue="ADD +"
-              buttonAction={addPlayer}
-            />
-          </div>
-        </div>
-      </div>
-      <div className="bodyWrap">
+    <PageWrapper
+      headerContent={<><img src={logo} alt="Logo" className='logo' /><div className='addPlayerContainer'><TextInput  textInputType='textInput textInputFlexResize' placeholderValue="Set players" textInputChange={handleTextInputChange} textInputValue={playerNameInputValue} /><Button buttonType={'button btPurple btFlexResize'} buttonAction={addPlayer}>ADD +</Button></div></>}
+      mainContent={
         <PlayerBoxContainer>
-          {players.map((player, index) => (
-            <PlayerBox
-              key={index}
-              pbType="PlayerBox"
-              pbValue={player}
-              pbEye={false}
-            />
-          ))}
-          {Array.from({ length: minimumPlayers }).map((_, index) => (
-            <PlayerBox
-              key={index}
-              pbType="PlayerBox pbDisabled pbDashedBorder"
-              pbValue=""
-              pbEye={false}
-            />
-          ))}
-        </PlayerBoxContainer>
-      </div>
-      <div className="footerWrap">
-        <Button
-          buttonType={buttonStartState}
-          buttonValue="START"
-          buttonAction={startGame}
-        />
-      </div>
-    </div>
-  )
-}
+          {playersArray.map((playerEntry, index) =>(<PlayerBox key={index} pbValue={playerEntry} pbEye={false} />))}
+          {minimumPlayersLeft.map((_, index) => (
+        <PlayerBox key={index} pbType='pbDashedBorder' pbValue='' pbEye={false} />
+      ))}
+        </PlayerBoxContainer>}
+      footerContent={<Button buttonType={'button btFlexResize' + (addPlayerButtonState ? ' btOrange' : ' btDisabled')} buttonAction={startGame}>Start</Button>}
+    />
+  );
+};
 
-export default SetupPlayersPage
+export default SetupPlayersPage;

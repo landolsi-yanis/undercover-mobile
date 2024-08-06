@@ -1,46 +1,25 @@
-body,
-html {
+* {
   margin: 0;
   padding: 0;
-  touch-action: pan-y;
-  overscroll-behavior: none;
 }
 
-body {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  font-family: "Lexend Deca", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body,
+#root {
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-  font-family: "Lexend Deca", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  background: linear-gradient(180deg, #14033a 0%, #3c708f 100%);
-  background-size: ;
-  background-position: center;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-::selection {
-  background: #fdae25;
-  color: #fff;
 }

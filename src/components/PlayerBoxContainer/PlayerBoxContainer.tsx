@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import './PlayerBoxContainer.css'
 
 interface Props {
-  children: React.ReactNode
+  children?: ReactNode
 }
 
-const PlayerBoxContainer: React.FC<Props> = ({ children }) => {
-  return <div className="PlayerBoxContainer">{children}</div>
+const PlayerBoxContainer: React.FC<Props> = (props) => {
+  return <div className='playerBoxContainer'>{props.children}</div>
 }
-
 export default PlayerBoxContainer

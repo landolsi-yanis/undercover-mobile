@@ -1,41 +1,26 @@
-.pageWrap {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+.logo
+{
+    width: 60%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* Aligne chaque élément au début du conteneur lors du défilement */
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
 }
 
-.headerWrap {
-  flex: 20%;
-  padding: 20px 20px 0px 20px;
-  box-sizing: border-box;
+@media only screen and (min-width: 1200px) 
+{
+    .logo
+    {
+        width: 15%;
+    }
 }
 
-.bodyWrap {
-  flex: 70%;
-  padding: 0px 20px 0px 20px;
-  box-sizing: border-box;
-  overflow: scroll;
-  scroll-snap-type: y mandatory;
-  /* Définit le type de défilement par saccades */
-}
-
-.footerWrap {
-  flex: auto;
-  padding: 5px 20px 20px 20px;
-  box-sizing: border-box;
-}
-
-.addPlayerContainer {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-  align-items: center;
-}
-
-.addPlayerContainer80 {
-  flex: 68;
-}
-
-.addPlayerContainer20 {
-  flex: 32;
+.addPlayerContainer
+{
+    display:flex;
+    gap:10px;
 }

@@ -1,0 +1,28 @@
+.showEliminatedPlayerPageRolePicture
+{
+  height: 100px;
+  width: auto;
+  /* Aligne chaque élément au début du conteneur lors du défilement */
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
+}
+.showEliminatedPlayerPagePlayerRolePictureContainer
+{
+  text-align:center;
+}
+
+.showEliminatedPlayerPageRole
+{
+  text-align: center;
+  padding: 0 0 10px 0;
+}
+
+.showEliminatedPlayerPageRoleTextBold
+{
+  font-weight: bold;
+  line-height: 200%;
+}
