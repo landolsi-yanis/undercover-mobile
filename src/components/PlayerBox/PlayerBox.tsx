@@ -10,11 +10,12 @@ interface Props {
   pbValue?: string
   pbEye?: boolean
   pbSelected?: boolean
+  pbAction?: React.MouseEventHandler
 }
 
 const PlayerBox: React.FC<Props> = (props) => {
     return (
-      <div className={('playerBox ' + props.pbType) + (props.pbSelected === true ? ' pbSelected' : '')}>
+      <div className={('playerBox ' + props.pbType) + (props.pbSelected === true ? ' pbSelected' : '')} onClick={props.pbAction}>
         <div className='pbLeftSide'>
           <img
             src={props.pbSelected === true ? playerPictureSelected : playerPicture}

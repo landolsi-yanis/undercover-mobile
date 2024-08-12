@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PageWrapper from '../../components/PageWrapper/PageWrapper';
 import logo from '../../assets/logo.png';
 import TextInput from '../../components/TextInput/TextInput';
@@ -7,18 +7,24 @@ import PlayerBox from '../../components/PlayerBox/PlayerBox';
 import PlayerBoxContainer from '../../components/PlayerBoxContainer/PlayerBoxContainer';
 import './SetupPlayersPage.css'
 import { useNavigate } from 'react-router-dom';
+import {Player} from '../../types/Player';
 
 
+interface Props {
+  players: Player[];
+  setPlayers:  React.Dispatch<React.SetStateAction<Player[]>>;
+}
 
-const SetupPlayersPage = () => {
+
+const SetupPlayersPage: React.FC<Props> = (props) => {
 
   const [playerNameInputValue, setPlayerNameInputValue] = useState<string>('');
-  const [playersArray, setPlayersArray] = useState<string[]>([]);
+  
+  
   const [minimumPlayers, setMinimumPlayers] = useState<number>(3);
   const minimumPlayersLeft = Array.from({ length: minimumPlayers });
   const [addPlayerButtonState, setAddPlayerButtonState] = useState<boolean>(false);
   const navigate = useNavigate();
-
 
   const handleTextInputChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     setPlayerNameInputValue(event.target.value);
@@ -27,15 +33,13 @@ const SetupPlayersPage = () => {
   const addPlayer = () => {
     if (playerNameInputValue.trim() !== '')
     {
-        setPlayersArray([...playersArray, playerNameInputValue]);
+      const newPlayer: Player = {name: playerNameInputValue, score: 0}; 
+        props.setPlayers([...props.players, newPlayer]);
         setPlayerNameInputValue('');
-        minimumPlayers <= 3 && setMinimumPlayers(minimumPlayers -1);
+        (minimumPlayers <= 3 && minimumPlayers > 0) && setMinimumPlayers(minimumPlayers -1);
         minimumPlayers === 1 && setAddPlayerButtonState(true);
-
-        console.log(minimumPlayers);
     }
     
-    console.log(playersArray);
   }
 
    const startGame = () => {
@@ -49,7 +53,7 @@ const SetupPlayersPage = () => {
       headerContent={<><img src={logo} alt="Logo" className='logo' /><div className='addPlayerContainer'><TextInput  textInputType='textInput textInputFlexResize' placeholderValue="Set players" textInputChange={handleTextInputChange} textInputValue={playerNameInputValue} /><Button buttonType={'button btPurple btFlexResize'} buttonAction={addPlayer}>ADD +</Button></div></>}
       mainContent={
         <PlayerBoxContainer>
-          {playersArray.map((playerEntry, index) =>(<PlayerBox key={index} pbValue={playerEntry} pbEye={false} />))}
+          {props.players.map((playerEntry, index) =>(<PlayerBox key={index} pbValue={playerEntry.name} pbEye={false} />))}
           {minimumPlayersLeft.map((_, index) => (
         <PlayerBox key={index} pbType='pbDashedBorder' pbValue='' pbEye={false} />
       ))}
