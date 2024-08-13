@@ -27,8 +27,8 @@ const App = () => {
           <Route path="/SetupMrWhitePage" element={<SetupMrWhitePage mrWhiteState={mrWhiteState} setMrWhiteState={setMrWhiteState}  />} />
           <Route path="/SelectPlayerToDiscoverPage" element={<SelectPlayerToDiscoverPage players={playersArray} setPlayers={setPlayersArray} mrWhiteState={mrWhiteState} undercoversWords={undercoversWords} setUndercoversWords={setUndercoversWords} citizensWords={citizensWords} setCitizensWords={setCitizensWords} hasSeenWord={hasSeenWord} setHasSeenWord={setHasSeenWord} selectedPlayer={selectedPlayer} setSelectedPlayer={setSelectedPlayer} />} />
           <Route path="/ShowWordPage" element={<ShowWordPage players={playersArray} setPlayers={setPlayersArray} mrWhiteState={mrWhiteState} undercoversWords={undercoversWords} setUndercoversWords={setUndercoversWords} citizensWords={citizensWords} setCitizensWords={setCitizensWords} hasSeenWord={hasSeenWord} setHasSeenWord={setHasSeenWord} selectedPlayer={selectedPlayer} setSelectedPlayer={setSelectedPlayer} />} />
-          <Route path="/ShowEliminatedPlayerPage" element={<ShowEliminatedPlayerPage />} />
-          <Route path="/SelectPlayerToEliminate" element={<SelectPlayerToEliminate  />} />
+          <Route path="/SelectPlayerToEliminate" element={<SelectPlayerToEliminate  players={playersArray} setPlayers={setPlayersArray} mrWhiteState={mrWhiteState} undercoversWords={undercoversWords} setUndercoversWords={setUndercoversWords} citizensWords={citizensWords} setCitizensWords={setCitizensWords} hasSeenWord={hasSeenWord} setHasSeenWord={setHasSeenWord} selectedPlayer={selectedPlayer} setSelectedPlayer={setSelectedPlayer} />} />
+          <Route path="/ShowEliminatedPlayerPage" element={<ShowEliminatedPlayerPage />} />       
         </Routes>
       </Router>
     </React.StrictMode>

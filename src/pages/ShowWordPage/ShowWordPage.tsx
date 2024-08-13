@@ -5,6 +5,7 @@ import MessageBox from '../../components/MessageBox/MessageBox'
 import playerPicture from '../../assets/playerPicture.png'
 import Button from '../../components/Button/Button'
 import { Player } from '../../types/Player'
+import { useNavigate } from 'react-router-dom'
 
 interface Props {
   //Functional props
@@ -23,7 +24,19 @@ interface Props {
 
 const ShowWordPage: React.FC<Props> = (props) => {
 
-  console.log(props.players.find(player => player.name === props.selectedPlayer))
+  const getCurrentPlayer = () => {
+    const player = props.players.find(player => player.name === props.selectedPlayer);
+    console.log('Player : ' , player);
+    console.log('Players : ' , props.players);
+    return player;
+  };
+
+  const navigate = useNavigate();
+
+  const wordshown = () => {
+    props.setHasSeenWord([...props.hasSeenWord, props.selectedPlayer])
+    navigate('/SelectPlayerToDiscoverPage');
+  };
 
   return (
     <PageWrapper 
@@ -31,10 +44,10 @@ const ShowWordPage: React.FC<Props> = (props) => {
         <>
           <MessageBox 
           largeHeight={true} 
-          headerContent={<><div className='showWWordPagePlayerIdentity'><img src={playerPicture} alt='Player Picture' className='showWWordPagePlayerPicture'/>{props.selectedPlayer}</div><div className='showWWordPagePlayerInfo'>Memorize your word<br/> 
-(you will never see it again)</div></>}
-          mainContent={<div className='showWWordPageWord'>{props.undercoversWords}</div>} 
-          footerContent={<Button buttonType={'button btOrange'}>Ok !</Button>} 
+          headerContent={<><div className='showWWordPagePlayerIdentity'><img src={playerPicture} alt='Player Picture' className='showWWordPagePlayerPicture'/>{props.selectedPlayer}</div><div className='showWWordPagePlayerInfo'>{getCurrentPlayer()?.role === 'Mr White' ? 'Chttttt you are Mr White Good luck !' : <>Memorize your word <br/> (you will never see it again)</> 
+}</div></>}
+          mainContent={<div className='showWWordPageWord'>{getCurrentPlayer()?.role === 'Undercover' && props.undercoversWords} {getCurrentPlayer()?.role === 'Citizen' && props.citizensWords}{getCurrentPlayer()?.role === 'Mr White' && '*****'}</div>} 
+          footerContent={<Button buttonType={'button btOrange'} buttonAction={wordshown}>Ok !</Button>} 
           mainCentered={true} />
         </>} />
       

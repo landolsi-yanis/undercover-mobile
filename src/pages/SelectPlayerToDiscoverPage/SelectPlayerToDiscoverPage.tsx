@@ -23,14 +23,22 @@ interface Props {
 const SelectPlayerToDiscoverPage: React.FC<Props> = (props) => {
 
    const navigate = useNavigate();
+
+   console.log(props.players);
   
   const addRoles = () =>
   {
+    if (props.players.some(player => player.role === '') || props.players.some(player => player.role === undefined))
+    {
+
+    
     const availableRoles = [];   
+
     //Adding Undercover Roles 
     props.players.length <=5 && availableRoles.push('Undercover');
     (props.players.length >= 6  && props.players.length <=8) && availableRoles.push('Undercover') && availableRoles.push('Undercover');
     props.players.length > 9 && availableRoles.push('Undercover') && availableRoles.push('Undercover') && availableRoles.push('Undercover');
+
     //Adding MrWhite Role 
     props.mrWhiteState === true && availableRoles.push('Mr White');
 
@@ -54,17 +62,19 @@ const SelectPlayerToDiscoverPage: React.FC<Props> = (props) => {
     //Updating Roles
     props.setPlayers(updatedPlayersArray);
   }
+}
 
   useEffect(addRoles,[]); 
 
-  useEffect(() => {props.setUndercoversWords("Pastèque");
-  props.setCitizensWords("Melon")});
+  useEffect(() => {props.setUndercoversWords("Pastèque (Undercover)");
+  props.setCitizensWords("Melon (Citizen)")});
+
+  useEffect(() => {props.hasSeenWord.length === props.players.length && navigate('/SelectPlayerToEliminate')}); 
 
   
   const showRole = (player :string) =>
   {
-    navigate('/ShowWordPage');
-    props.setSelectedPlayer(player);
+    !props.hasSeenWord.includes(player) && navigate('/ShowWordPage'), props.setSelectedPlayer(player);
   }
 
   
@@ -73,7 +83,7 @@ const SelectPlayerToDiscoverPage: React.FC<Props> = (props) => {
 
       <div className="playersWrap">
         <PlayerBoxContainer>
-          {props.players.map((playerEntry, index) =>(<PlayerBox key={index} pbValue={playerEntry.name} pbEye={false} pbAction={() => showRole(playerEntry.name)} />))}
+          {props.players.map((playerEntry, index) =>(<PlayerBox key={index} pbValue={playerEntry.name} pbEye={props.hasSeenWord.includes(playerEntry.name) ? false : true} pbAction={() => showRole(playerEntry.name)} pbType={props.hasSeenWord.includes(playerEntry.name) ? 'pbDisabled' : ''} />))}
         </PlayerBoxContainer>
       </div></>}  />
       
@@ -81,7 +91,5 @@ const SelectPlayerToDiscoverPage: React.FC<Props> = (props) => {
 }
 
 export default SelectPlayerToDiscoverPage
-function shuffle(availableRoles: string[]): any {
-  throw new Error('Function not implemented.')
-}
+
 

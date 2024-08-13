@@ -31,7 +31,7 @@ const SetupPlayersPage: React.FC<Props> = (props) => {
   };
 
   const addPlayer = () => {
-    if (playerNameInputValue.trim() !== '')
+    if (playerNameInputValue.trim() !== '' && !props.players.some(player => player.name === playerNameInputValue))
     {
       const newPlayer: Player = {name: playerNameInputValue, score: 0}; 
         props.setPlayers([...props.players, newPlayer]);
@@ -53,7 +53,7 @@ const SetupPlayersPage: React.FC<Props> = (props) => {
       headerContent={<><img src={logo} alt="Logo" className='logo' /><div className='addPlayerContainer'><TextInput  textInputType='textInput textInputFlexResize' placeholderValue="Set players" textInputChange={handleTextInputChange} textInputValue={playerNameInputValue} /><Button buttonType={'button btPurple btFlexResize'} buttonAction={addPlayer}>ADD +</Button></div></>}
       mainContent={
         <PlayerBoxContainer>
-          {props.players.map((playerEntry, index) =>(<PlayerBox key={index} pbValue={playerEntry.name} pbEye={false} />))}
+          {props.players.map((playerEntry, index) =>(<PlayerBox key={index} pbValue={playerEntry.name} pbEye={false} pbType={playerNameInputValue === playerEntry.name ? 'pbShake' : ''} />))}
           {minimumPlayersLeft.map((_, index) => (
         <PlayerBox key={index} pbType='pbDashedBorder' pbValue='' pbEye={false} />
       ))}

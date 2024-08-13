@@ -89,3 +89,16 @@
 {
     opacity: 0.5;
 }
+
+@keyframes horizontal-shaking {
+ 0% { transform: translateX(0) }
+ 25% { transform: translateX(4px) }
+ 50% { transform: translateX(-4px) }
+ 75% { transform: translateX(4px) }
+ 100% { transform: translateX(0) }
+}
+
+.pbShake
+{
+    animation: horizontal-shaking 1s ease-in-out infinite;
+}
