@@ -29,6 +29,13 @@ const SelectPlayerToEliminate: React.FC<Props> = (props) => {
   const toEliminate = () => {
     props.setSelectedPlayer(pbSelected);
     console.log('pbSelected to be eliminated',pbSelected);
+    props.setPlayers(prevPlayers => 
+    prevPlayers.map(player =>
+      player.name === pbSelected
+        ? { ...player, eliminated: true}
+        : player
+    )
+  );
     navigate('/ShowEliminatedPlayerPage');
   }
 
@@ -38,7 +45,7 @@ At the end of the round select player to eliminate </div>
 
       <div className="playersWrap">
         <PlayerBoxContainer>
-          {props.players.map((playerEntry, index) =>(<PlayerBox key={index} pbValue={playerEntry.name} pbEye={false} pbAction={() => setPbSelected(playerEntry.name)} pbType={playerEntry.eliminated === true ? 'pbDisabled' : ''} pbSelected={pbSelected === playerEntry.name ? true : false} />))}
+          {props.players.map((playerEntry, index) =>(<PlayerBox key={index} pbValue={playerEntry.name} pbEye={false} pbAction={() => (playerEntry.eliminated === false && setPbSelected(playerEntry.name))} pbType={playerEntry.eliminated === true ? 'pbDisabled' : ''} pbSelected={pbSelected === playerEntry.name ? true : false} />))}
         </PlayerBoxContainer>
       </div></>}  footerContent={<Button buttonType={'button btOrange'} buttonAction={toEliminate}>Elminate</Button>}/>
       
