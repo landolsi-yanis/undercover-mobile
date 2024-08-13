@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './SelectPlayerToEliminate.css'
 import PlayerBoxContainer from '../../components/PlayerBoxContainer/PlayerBoxContainer'
 import PlayerBox from '../../components/PlayerBox/PlayerBox'
 import PageWrapper from '../../components/PageWrapper/PageWrapper'
 import Button from '../../components/Button/Button'
 import { Player } from '../../types/Player'
+import { useNavigate } from 'react-router-dom'
 
 interface Props {
   players: Player[];
@@ -21,17 +22,31 @@ interface Props {
 }
 
 const SelectPlayerToEliminate: React.FC<Props> = (props) => {
+  
+  const navigate = useNavigate();
+  const [pbSelected, setPbSelected] = useState<string>('');
+
+  const toEliminate = () => {
+    props.setSelectedPlayer(pbSelected);
+    console.log('pbSelected to be eliminated',pbSelected);
+    navigate('/ShowEliminatedPlayerPage');
+  }
+
   return (
     <PageWrapper mainContent={<><div className="textWrap">Follow this order.<br /> 
 At the end of the round select player to eliminate </div>
 
       <div className="playersWrap">
         <PlayerBoxContainer>
-          {props.players.map((playerEntry, index) =>(<PlayerBox key={index} pbValue={playerEntry.name} pbEye={props.hasSeenWord.includes(playerEntry.name) ? false : true} pbAction={() => null} pbType={props.hasSeenWord.includes(playerEntry.name) ? 'pbDisabled' : ''} />))}
+          {props.players.map((playerEntry, index) =>(<PlayerBox key={index} pbValue={playerEntry.name} pbEye={false} pbAction={() => setPbSelected(playerEntry.name)} pbType={playerEntry.eliminated === true ? 'pbDisabled' : ''} pbSelected={pbSelected === playerEntry.name ? true : false} />))}
         </PlayerBoxContainer>
-      </div></>}  footerContent={<Button buttonType={'button btOrange'}>Elminate</Button>}/>
+      </div></>}  footerContent={<Button buttonType={'button btOrange'} buttonAction={toEliminate}>Elminate</Button>}/>
       
   )
 }
 
 export default SelectPlayerToEliminate
+function setSelectedPlayer(pbSelected: string) {
+  throw new Error('Function not implemented.')
+}
+

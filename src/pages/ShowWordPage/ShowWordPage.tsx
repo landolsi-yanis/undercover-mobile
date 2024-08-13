@@ -26,8 +26,6 @@ const ShowWordPage: React.FC<Props> = (props) => {
 
   const getCurrentPlayer = () => {
     const player = props.players.find(player => player.name === props.selectedPlayer);
-    console.log('Player : ' , player);
-    console.log('Players : ' , props.players);
     return player;
   };
 
@@ -44,7 +42,7 @@ const ShowWordPage: React.FC<Props> = (props) => {
         <>
           <MessageBox 
           largeHeight={true} 
-          headerContent={<><div className='showWWordPagePlayerIdentity'><img src={playerPicture} alt='Player Picture' className='showWWordPagePlayerPicture'/>{props.selectedPlayer}</div><div className='showWWordPagePlayerInfo'>{getCurrentPlayer()?.role === 'Mr White' ? 'Chttttt you are Mr White Good luck !' : <>Memorize your word <br/> (you will never see it again)</> 
+          headerContent={<><div className='showWWordPagePlayerIdentity'><img src={playerPicture} alt='Player Picture' className='showWWordPagePlayerPicture'/>{props.selectedPlayer}</div><div className='showWWordPagePlayerInfo'>{getCurrentPlayer()?.role === 'Mr White' ? <>Chttttt you are Mr White<br />Good luck !</> : <>Memorize your word <br/> (you will never see it again)</> 
 }</div></>}
           mainContent={<div className='showWWordPageWord'>{getCurrentPlayer()?.role === 'Undercover' && props.undercoversWords} {getCurrentPlayer()?.role === 'Citizen' && props.citizensWords}{getCurrentPlayer()?.role === 'Mr White' && '*****'}</div>} 
           footerContent={<Button buttonType={'button btOrange'} buttonAction={wordshown}>Ok !</Button>} 

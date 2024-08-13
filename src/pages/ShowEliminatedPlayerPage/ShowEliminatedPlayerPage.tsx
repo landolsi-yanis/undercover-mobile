@@ -4,8 +4,24 @@ import PageWrapper from '../../components/PageWrapper/PageWrapper'
 import MessageBox from '../../components/MessageBox/MessageBox'
 import citizenPicture from '../../assets/citizen.png'
 import Button from '../../components/Button/Button'
+import { Player } from '../../types/Player'
 
-const ShowEliminatedPlayerPage = () => {
+interface Props {
+  players: Player[];
+  setPlayers:  React.Dispatch<React.SetStateAction<Player[]>>;
+  mrWhiteState: boolean;
+  citizensWords: string;
+  setCitizensWords: React.Dispatch<React.SetStateAction<string>>;
+  undercoversWords: string;
+  setUndercoversWords: React.Dispatch<React.SetStateAction<string>>;
+  hasSeenWord: string[];
+  setHasSeenWord: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedPlayer: string;
+  setSelectedPlayer: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const ShowEliminatedPlayerPage: React.FC<Props> = (props) => {
+
   return (
     <PageWrapper 
       mainContent={

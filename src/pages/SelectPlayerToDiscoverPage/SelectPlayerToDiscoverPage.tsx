@@ -57,6 +57,7 @@ const SelectPlayerToDiscoverPage: React.FC<Props> = (props) => {
     const updatedPlayersArray = props.players.map((player, index) => ({
     ...player,
     role: shuffledAvailableRoles[index], // Assigning a role from the shuffled roles
+    eliminated: false 
   }));
 
     //Updating Roles
