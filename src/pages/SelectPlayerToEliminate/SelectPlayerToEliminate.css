@@ -1,22 +1,27 @@
 .pageWrap {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    color: #fff;
 }
+
 .textWrap {
-  padding: 20px;
-  width: 50%;
-  font-size: 22px;
-  -webkit-user-select: none;
-  /* Safari */
-  -ms-user-select: none;
-  /* IE 10 and IE 11 */
-  user-select: none;
-  /* Standard syntax */
-  pointer-events: none;
+    padding: 20px;
+    width: 50%;
+    font-size: 22px;
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+    pointer-events: none;
 }
 
 .playersWrap {
-  padding: 20px;
+    padding: 20px;
+}
+
+.playerWhoStartsLabel {
+    font-size: 15px;
 }

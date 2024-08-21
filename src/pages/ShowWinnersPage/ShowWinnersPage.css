@@ -1,0 +1,55 @@
+.showWinnerPlayerPageRolePicture {
+  height: 100px;
+  width: 100px;
+  /* Aligne chaque élément au début du conteneur lors du défilement */
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes gradient-rotate {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.showWinnerPlayerPageRolePictureGoldContainer {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  padding: 10px;
+  background: linear-gradient(45deg, #ffd700, #ffa500, #ffd700, #ffa500);
+  background-size: 300% 300%;
+  animation: gradient-rotate 5s ease infinite;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.75);
+}
+
+.showEliminatedPlayerPagePlayerRolePictureContainer {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.showEliminatedPlayerPageRole {
+  text-align: center;
+  padding: 0 0 10px 0;
+}
+
+.showEliminatedPlayerPageRoleTextBold {
+  font-weight: bold;
+  line-height: 200%;
+}
+
+.showWinnersPagePlayerList {
+  margin-top: 20px;
+}

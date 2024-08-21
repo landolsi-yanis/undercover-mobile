@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import "./ShowEliminatedPlayerPage.css";
+import "./ShowWinnersPage.css";
 import PageWrapper from "../../components/PageWrapper/PageWrapper";
 import MessageBox from "../../components/MessageBox/MessageBox";
 import citizenPicture from "../../assets/citizen.png";
@@ -9,6 +9,8 @@ import Button from "../../components/Button/Button";
 import {Player} from "../../types/Player";
 import {useNavigate} from "react-router-dom";
 import TextInput from "../../components/TextInput/TextInput";
+import PlayerBoxContainer from "../../components/PlayerBoxContainer/PlayerBoxContainer";
+import PlayerBox from "../../components/PlayerBox/PlayerBox";
 
 interface Props
 {
@@ -29,19 +31,69 @@ interface Props
     setPlayerWhoStarts: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const ShowEliminatedPlayerPage: React.FC<Props> = (props) => {
+const ShowWinnersPage: React.FC<Props> = (props) => {
     const [secretWordInputValue, setSecretWordInputValue] = useState<string>("");
 
-    const handleTextInputChange: React.ChangeEventHandler<HTMLInputElement> = (
-        event
-    ) => {
+    const handleTextInputChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         setSecretWordInputValue(event.target.value);
     };
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        props.setPlayers(
+            props.players.map((playerEntry) => {
+                let score = 0;
+                console.log('Player Entry  : ', playerEntry.role, playerEntry.eliminated);
+                if (
+                    (playerEntry.role === props.winners &&
+                        playerEntry.eliminated === false) || playerEntry.role === 'Mr White' && props.winners === 'Mr White'
+                )
+                {
+                    console.log('Entering IF :: ', playerEntry.role);
+
+                    switch (playerEntry.role)
+                    {
+                        case "Mr White":
+                            score = 50;
+                            console.log('Mr White :: ', playerEntry.role);
+                            break;
+                        case "Undercover":
+                            score = 30;
+                            console.log('Undercover :: ', playerEntry.role);
+                            break;
+                        case "Citizen":
+                            console.log('Citizen :: ', playerEntry.role);
+                            score = 20;
+                            break;
+                    }
+                }
+                return {
+                    ...playerEntry,
+                    eliminated: false,
+                    role: "",
+                    score: (playerEntry.score += score),
+                };
+            })
+        );
+    }, []);
+
     const okSubmit = () => {
         props.setSelectedPlayer("");
-        navigate("/SelectPlayerToEliminate");
+        props.setHasSeenWord([]);
+        props.setPlayerWhoStarts("");
+        props.setPlayers(
+            props.players.map((playerEntry) => {
+                return {
+                    ...playerEntry,
+                    eliminated: false,
+                    role: "",
+                };
+            })
+        );
+        props.setCitizensWords("");
+        props.setUndercoversWords("");
+        navigate("/");
     };
 
     const getRole = () => {
@@ -50,13 +102,13 @@ const ShowEliminatedPlayerPage: React.FC<Props> = (props) => {
     };
 
     const getRolePicture = () => {
-        if (getRole() === "Undercover")
+        if (props.winners === "Undercover")
         {
             return undercoverPicture;
-        } else if (getRole() === "Citizen")
+        } else if (props.winners === "Citizen")
         {
             return citizenPicture;
-        } else if (getRole() === "Mr White")
+        } else if (props.winners === "Mr White")
         {
             return mrWhitePicture;
         }
@@ -67,10 +119,9 @@ const ShowEliminatedPlayerPage: React.FC<Props> = (props) => {
         console.log(secretWordInputValue);
         if (secretWordInputValue.trim() !== "")
         {
-            console.log(props.citizensWords);
             secretWordInputValue.trim() === props.citizensWords
-                ? (props.setWinners("Mr White"), navigate("/ShowWinnersPage"))
-                : navigate("/SelectPlayerToEliminate");
+                ? console.log("Word Guessed")
+                : console.log("Word not Guessed");
         }
     };
 
@@ -82,30 +133,37 @@ const ShowEliminatedPlayerPage: React.FC<Props> = (props) => {
                         largeHeight={false}
                         headerContent={
                             <div className='showEliminatedPlayerPagePlayerRolePictureContainer'>
-                                <img
-                                    src={getRolePicture()}
-                                    alt='Role picture'
-                                    className='showEliminatedPlayerPageRolePicture'
-                                />
+                                <div className='showWinnerPlayerPageRolePictureGoldContainer'>
+                                    <img
+                                        src={getRolePicture()}
+                                        alt='Role picture'
+                                        className='showWinnerPlayerPageRolePicture'
+                                    />
+                                </div>
                             </div>
                         }
                         mainContent={
                             <div className='showEliminatedPlayerPageRole'>
-                                {props.selectedPlayer} was
-                                <br/>
-                                <span className='showEliminatedPlayerPageRoleTextBold'>
-                  {getRole()}
+                <span className='showEliminatedPlayerPageRoleTextBold'>
+                  {props.winners}
                 </span>
-                                {getRole() === "Mr White" && (
-                                    <>
-                                        <br/>
-                                        Try to guess
-                                    </>
-                                )}
+                                <br/> Won <br/>
+                                <div className='showWinnersPagePlayerList'>
+                                    <PlayerBoxContainer>
+                                        {props.players.map((playerEntry, index) => (
+                                            <PlayerBox
+                                                key={index}
+                                                pbValue={playerEntry.name}
+                                                pbRightValue={playerEntry.score}
+                                                pbEye={false}
+                                            />
+                                        ))}
+                                    </PlayerBoxContainer>
+                                </div>
                             </div>
                         }
                         footerContent={
-                            getRole() === "Mr White" ? (
+                            getRole() === "Mr White" && props.winners !== "Mr White" ? (
                                 <>
                                     <TextInput
                                         textInputType={
@@ -141,4 +199,4 @@ const ShowEliminatedPlayerPage: React.FC<Props> = (props) => {
     );
 };
 
-export default ShowEliminatedPlayerPage;
+export default ShowWinnersPage;

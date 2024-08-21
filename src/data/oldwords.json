@@ -1,0 +1,8 @@
+{
+  "combinations": [
+    { "citizen": "apple", "undercover": "orange" },
+    { "citizen": "dog", "undercover": "wolf" },
+    { "citizen": "car", "undercover": "truck" },
+    { "citizen": "cat", "undercover": "lion" }
+  ]
+}

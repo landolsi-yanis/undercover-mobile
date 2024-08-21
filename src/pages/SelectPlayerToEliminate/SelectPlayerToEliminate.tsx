@@ -1,59 +1,142 @@
-import React, { useState } from 'react'
-import './SelectPlayerToEliminate.css'
-import PlayerBoxContainer from '../../components/PlayerBoxContainer/PlayerBoxContainer'
-import PlayerBox from '../../components/PlayerBox/PlayerBox'
-import PageWrapper from '../../components/PageWrapper/PageWrapper'
-import Button from '../../components/Button/Button'
-import { Player } from '../../types/Player'
-import { useNavigate } from 'react-router-dom'
+import React, {useEffect, useState} from "react";
+import "./SelectPlayerToEliminate.css";
+import PlayerBoxContainer from "../../components/PlayerBoxContainer/PlayerBoxContainer";
+import PlayerBox from "../../components/PlayerBox/PlayerBox";
+import PageWrapper from "../../components/PageWrapper/PageWrapper";
+import Button from "../../components/Button/Button";
+import {Player} from "../../types/Player";
+import {useNavigate} from "react-router-dom";
 
-interface Props {
-  players: Player[];
-  setPlayers:  React.Dispatch<React.SetStateAction<Player[]>>;
-  mrWhiteState: boolean;
-  citizensWords: string;
-  setCitizensWords: React.Dispatch<React.SetStateAction<string>>;
-  undercoversWords: string;
-  setUndercoversWords: React.Dispatch<React.SetStateAction<string>>;
-  hasSeenWord: string[];
-  setHasSeenWord: React.Dispatch<React.SetStateAction<string[]>>;
-  selectedPlayer: string;
-  setSelectedPlayer: React.Dispatch<React.SetStateAction<string>>;
+interface Props
+{
+    players: Player[];
+    setPlayers: React.Dispatch<React.SetStateAction<Player[]>>;
+    mrWhiteState: boolean;
+    setMrWhiteState: React.Dispatch<React.SetStateAction<boolean>>;
+    citizensWords: string;
+    setCitizensWords: React.Dispatch<React.SetStateAction<string>>;
+    undercoversWords: string;
+    setUndercoversWords: React.Dispatch<React.SetStateAction<string>>;
+    hasSeenWord: string[];
+    setHasSeenWord: React.Dispatch<React.SetStateAction<string[]>>;
+    selectedPlayer: string;
+    setSelectedPlayer: React.Dispatch<React.SetStateAction<string>>;
+    winners: string;
+    setWinners: React.Dispatch<React.SetStateAction<string>>;
+    playerWhoStarts: string;
+    setPlayerWhoStarts: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const SelectPlayerToEliminate: React.FC<Props> = (props) => {
-  
-  const navigate = useNavigate();
-  const [pbSelected, setPbSelected] = useState<string>('');
+    const navigate = useNavigate();
+    const [pbSelected, setPbSelected] = useState<string>("");
 
-  const toEliminate = () => {
-    props.setSelectedPlayer(pbSelected);
-    console.log('pbSelected to be eliminated',pbSelected);
-    props.setPlayers(prevPlayers => 
-    prevPlayers.map(player =>
-      player.name === pbSelected
-        ? { ...player, eliminated: true}
-        : player
-    )
-  );
-    navigate('/ShowEliminatedPlayerPage');
-  }
+    const getRolesLeft = (roleToCount: string) => {
+        return props.players.filter(
+            (player) => player.role === roleToCount && !player.eliminated
+        ).length;
+    };
 
-  return (
-    <PageWrapper mainContent={<><div className="textWrap">Follow this order.<br /> 
-At the end of the round select player to eliminate </div>
+    const [remainingUndercovers, setRemainingUndercovers] = useState(
+        getRolesLeft("Undercover")
+    );
+    const [remainingCitizens, setRemainingCitizens] = useState(
+        getRolesLeft("Citizen")
+    );
 
-      <div className="playersWrap">
-        <PlayerBoxContainer>
-          {props.players.map((playerEntry, index) =>(<PlayerBox key={index} pbValue={playerEntry.name} pbEye={false} pbAction={() => (playerEntry.eliminated === false && setPbSelected(playerEntry.name))} pbType={playerEntry.eliminated === true ? 'pbDisabled' : ''} pbSelected={pbSelected === playerEntry.name ? true : false} />))}
-        </PlayerBoxContainer>
-      </div></>}  footerContent={<Button buttonType={'button btOrange'} buttonAction={toEliminate}>Elminate</Button>}/>
-      
-  )
-}
+    const [remainingMrWhite, setRemainingMrWhite] = useState(
+        getRolesLeft("Mr White")
+    );
 
-export default SelectPlayerToEliminate
-function setSelectedPlayer(pbSelected: string) {
-  throw new Error('Function not implemented.')
-}
+    useEffect(() => {
+        setRemainingUndercovers(getRolesLeft("Undercover"));
+        setRemainingCitizens(getRolesLeft("Citizen"));
+        setRemainingCitizens(getRolesLeft("Mr White"));
+        if (props.players.length === 3)
+        {
+            if (remainingUndercovers === 0 && remainingMrWhite === 0)
+            {
+                props.setWinners("Citizen");
+                navigate("/ShowWinnersPage");
 
+            } else if (remainingCitizens === 0)
+            {
+                props.setWinners("Undercover");
+                navigate("/ShowWinnersPage");
+            }
+        } else
+        {
+            if (remainingUndercovers === 0 && remainingMrWhite === 0)
+            {
+                props.setWinners("Citizen");
+                navigate("/ShowWinnersPage");
+
+            } else if (remainingCitizens === 1)
+            {
+                props.setWinners("Undercover");
+                navigate("/ShowWinnersPage");
+            }
+        }
+
+    }, []);
+
+    const toEliminate = () => {
+        if (pbSelected !== "")
+        {
+            props.setSelectedPlayer(pbSelected);
+            console.log("pbSelected to be eliminated", pbSelected);
+            props.setPlayers((prevPlayers) =>
+                prevPlayers.map((player) =>
+                    player.name === pbSelected ? {...player, eliminated: true} : player
+                )
+            );
+            navigate("/ShowEliminatedPlayerPage");
+        }
+    };
+
+    return (
+        <PageWrapper
+            mainContent={
+                <>
+                    <div className='textWrap'>
+                        Time to play !
+                        <br/>
+                        At the end of the round select player to eliminate{" "}
+                    </div>
+
+                    <div className='playersWrap'>
+                        <PlayerBoxContainer>
+                            {props.players.map((playerEntry, index) => (
+                                <PlayerBox
+                                    key={index}
+                                    pbValue={
+                                        playerEntry.name +
+                                        (playerEntry.eliminated === true
+                                            ? " (" + playerEntry.role + ")"
+                                            : "")
+                                    }
+                                    pbEye={false}
+                                    pbAction={() =>
+                                        playerEntry.eliminated === false &&
+                                        setPbSelected(playerEntry.name)
+                                    }
+                                    pbType={playerEntry.eliminated === true ? "pbDisabled" : ""}
+                                    pbSelected={pbSelected === playerEntry.name ? true : false}
+                                    pbRightValue={playerEntry.name === props.playerWhoStarts ?
+                                        <div className="playerWhoStartsLabel">You Start</div> : ""}
+                                />
+                            ))}
+                        </PlayerBoxContainer>
+                    </div>
+                </>
+            }
+            footerContent={
+                <Button buttonType={"button btOrange"} buttonAction={toEliminate}>
+                    Eliminate
+                </Button>
+            }
+        />
+    );
+};
+
+export default SelectPlayerToEliminate;

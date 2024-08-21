@@ -1,33 +1,45 @@
-import React from 'react'
-import './PlayerBox.css'
-import playerPicture from '../../assets/playerPicture.png'
-import playerPictureSelected from '../../assets/selectedPlayerPicture.png'
-import eyeIcon from '../../assets/eye.png'
-
+import React, { ReactNode } from "react";
+import "./PlayerBox.css";
+import playerPicture from "../../assets/playerPicture.png";
+import playerPictureSelected from "../../assets/selectedPlayerPicture.png";
+import eyeIcon from "../../assets/eye.png";
 
 interface Props {
-  pbType?: string
-  pbValue?: string
-  pbEye?: boolean
-  pbSelected?: boolean
-  pbAction?: React.MouseEventHandler
+  pbType?: string;
+  pbValue?: string;
+  pbRightValue?: ReactNode;
+  pbEye?: boolean;
+  pbSelected?: boolean;
+  pbAction?: React.MouseEventHandler;
 }
 
 const PlayerBox: React.FC<Props> = (props) => {
-    return (
-      <div className={('playerBox ' + props.pbType) + (props.pbSelected === true ? ' pbSelected' : '')} onClick={props.pbAction}>
-        <div className='pbLeftSide'>
-          <img
-            src={props.pbSelected === true ? playerPictureSelected : playerPicture}
-            alt="Player Profile"
-            className='pbPlayerPicture'
-          />
-          {props.pbValue}
-        </div>
-        <div className='pbRightSide' >
-          {props.pbEye === true && <img src={eyeIcon} alt="Eye" className='pbEye'/>}
-        </div>
+  return (
+    <div
+      className={
+        "playerBox " +
+        props.pbType +
+        (props.pbSelected === true ? " pbSelected" : "")
+      }
+      onClick={props.pbAction}
+    >
+      <div className='pbLeftSide'>
+        <img
+          src={
+            props.pbSelected === true ? playerPictureSelected : playerPicture
+          }
+          alt='Player Profile'
+          className='pbPlayerPicture'
+        />
+        {props.pbValue}
       </div>
-    )
-}
-export default PlayerBox
+      <div className='pbRightSide'>
+        {props.pbEye === true && (
+          <img src={eyeIcon} alt='Eye' className='pbEye' />
+        )}
+        {props.pbRightValue}
+      </div>
+    </div>
+  );
+};
+export default PlayerBox;

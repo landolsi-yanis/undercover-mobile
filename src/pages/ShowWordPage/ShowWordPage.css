@@ -1,5 +1,4 @@
-.showWWordPagePlayerPicture
-{
+.showWWordPagePlayerPicture {
   height: 45px;
   width: auto;
   /* Aligne chaque élément au début du conteneur lors du défilement */
@@ -10,20 +9,17 @@
   user-select: none;
   /* Standard syntax */
 }
-.showWWordPagePlayerIdentity
-{
-  display:flex;
+.showWWordPagePlayerIdentity {
+  display: flex;
   align-items: center;
-  gap:10px;
+  gap: 10px;
 }
 
-.showWWordPagePlayerInfo
-{
-  margin-top:10px;
+.showWWordPagePlayerInfo {
+  margin-top: 10px;
 }
 
-.showWWordPageWord
-{
+.showWWordPageWord {
   text-align: center;
   font-weight: bold;
 }

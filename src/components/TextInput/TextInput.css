@@ -22,3 +22,13 @@
 {
     flex:70;
 }
+
+.textInputMarginBottom
+{
+    margin-bottom: 10px;
+}
+
+.textInputCenteredtext
+{
+    text-align:center;
+}

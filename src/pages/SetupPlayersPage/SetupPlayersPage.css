@@ -24,3 +24,15 @@
     display:flex;
     gap:10px;
 }
+
+.minimumPlayersLabel
+{
+    text-align: center;
+    color:#fff;
+    margin: 0 0 10px 0;
+}
+
+.minimumPlayersLabelReached
+{
+    display:none;
+}
