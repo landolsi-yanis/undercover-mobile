@@ -6,6 +6,9 @@ import PageWrapper from "../../components/PageWrapper/PageWrapper";
 import Button from "../../components/Button/Button";
 import {Player} from "../../types/Player";
 import {useNavigate} from "react-router-dom";
+import undercoverPicture from "../../assets/undercover.png";
+import citizenPicture from "../../assets/citizen.png";
+import mrWhitePicture from "../../assets/mrWhite.png";
 
 interface Props
 {
@@ -37,6 +40,20 @@ const SelectPlayerToEliminate: React.FC<Props> = (props) => {
         ).length;
     };
 
+    const getRolePicture = (onePlayer: Player) => {
+        if (onePlayer.role === "Undercover")
+        {
+            return undercoverPicture;
+        } else if (onePlayer.role === "Citizen")
+        {
+            return citizenPicture;
+        } else if (onePlayer.role === "Mr White")
+        {
+            return mrWhitePicture;
+        }
+        return undefined;
+    };
+
     const [remainingUndercovers, setRemainingUndercovers] = useState(
         getRolesLeft("Undercover")
     );
@@ -52,14 +69,27 @@ const SelectPlayerToEliminate: React.FC<Props> = (props) => {
         setRemainingUndercovers(getRolesLeft("Undercover"));
         setRemainingCitizens(getRolesLeft("Citizen"));
         setRemainingCitizens(getRolesLeft("Mr White"));
-        if (props.players.length === 3)
+
+        if (props.players.length === 3 && props.mrWhiteState)
         {
-            if (remainingUndercovers === 0 && remainingMrWhite === 0)
+            if (remainingUndercovers === 0)
             {
                 props.setWinners("Citizen");
                 navigate("/ShowWinnersPage");
 
             } else if (remainingCitizens === 0)
+            {
+                props.setWinners("Undercover");
+                navigate("/ShowWinnersPage");
+            }
+        } else if (props.players.length === 3 && !props.mrWhiteState)
+        {
+            if (remainingUndercovers === 0)
+            {
+                props.setWinners("Citizen");
+                navigate("/ShowWinnersPage");
+
+            } else if (remainingCitizens === 1)
             {
                 props.setWinners("Undercover");
                 navigate("/ShowWinnersPage");
@@ -124,6 +154,7 @@ const SelectPlayerToEliminate: React.FC<Props> = (props) => {
                                     pbSelected={pbSelected === playerEntry.name ? true : false}
                                     pbRightValue={playerEntry.name === props.playerWhoStarts ?
                                         <div className="playerWhoStartsLabel">You Start</div> : ""}
+                                    pbImage={playerEntry.eliminated === true ? getRolePicture(playerEntry) : ""}
                                 />
                             ))}
                         </PlayerBoxContainer>

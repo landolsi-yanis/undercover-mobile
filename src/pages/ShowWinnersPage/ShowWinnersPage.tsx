@@ -70,8 +70,6 @@ const ShowWinnersPage: React.FC<Props> = (props) => {
                 }
                 return {
                     ...playerEntry,
-                    eliminated: false,
-                    role: "",
                     score: (playerEntry.score += score),
                 };
             })
@@ -79,9 +77,6 @@ const ShowWinnersPage: React.FC<Props> = (props) => {
     }, []);
 
     const okSubmit = () => {
-        props.setSelectedPlayer("");
-        props.setHasSeenWord([]);
-        props.setPlayerWhoStarts("");
         props.setPlayers(
             props.players.map((playerEntry) => {
                 return {
@@ -91,6 +86,9 @@ const ShowWinnersPage: React.FC<Props> = (props) => {
                 };
             })
         );
+        props.setSelectedPlayer("");
+        props.setHasSeenWord([]);
+        props.setPlayerWhoStarts("");
         props.setCitizensWords("");
         props.setUndercoversWords("");
         navigate("/");
@@ -115,6 +113,21 @@ const ShowWinnersPage: React.FC<Props> = (props) => {
         return undefined;
     };
 
+
+    const getAnyRolePicture = (onePlayer: Player) => {
+        console.log("OnePlayer : ", onePlayer);
+        if (onePlayer.role === "Undercover")
+        {
+            return undercoverPicture;
+        } else if (onePlayer.role === "Citizen")
+        {
+            return citizenPicture;
+        } else if (onePlayer.role === "Mr White")
+        {
+            return mrWhitePicture;
+        }
+    };
+
     const tryToGuessSecretWord = () => {
         console.log(secretWordInputValue);
         if (secretWordInputValue.trim() !== "")
@@ -124,6 +137,7 @@ const ShowWinnersPage: React.FC<Props> = (props) => {
                 : console.log("Word not Guessed");
         }
     };
+
 
     return (
         <PageWrapper
@@ -150,14 +164,22 @@ const ShowWinnersPage: React.FC<Props> = (props) => {
                                 <br/> Won <br/>
                                 <div className='showWinnersPagePlayerList'>
                                     <PlayerBoxContainer>
-                                        {props.players.map((playerEntry, index) => (
-                                            <PlayerBox
-                                                key={index}
-                                                pbValue={playerEntry.name}
-                                                pbRightValue={playerEntry.score}
-                                                pbEye={false}
-                                            />
-                                        ))}
+                                        {props.players
+                                            .sort((a, b) => b.score - a.score) // Trie par score décroissant askip
+                                            .map((playerEntry, index) => (
+                                                <PlayerBox
+                                                    key={index}
+                                                    pbValue={playerEntry.name}
+                                                    pbRightValue={playerEntry.score}
+                                                    pbEye={false}
+                                                    pbImage={getAnyRolePicture(playerEntry)}
+                                                    pbType={
+                                                        playerEntry.role !== props.winners
+                                                            ? "pbDisabled"
+                                                            : (playerEntry.eliminated === true ? "pbDisabled" : "")
+                                                    }
+                                                />
+                                            ))}
                                     </PlayerBoxContainer>
                                 </div>
                             </div>
